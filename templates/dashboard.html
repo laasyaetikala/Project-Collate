@@ -1,0 +1,144 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<section id="feed">
+    <div class="in-feed">
+    <div class="row">
+        <div class="col-3">
+            <div class="container"><h4 style="color: #2EA3F2";>Domains</h4><br>
+                <form action="/selectDomain/ArtificialIntelligence" method="post">
+                <div class="form-check">
+                    <input class="form-check-input" type="submit" id="AI">
+                    <label class="form-check-label" for="admission">Artificial Intelligence</label> 
+                </div><br>
+            </form>
+            <form action="/selectDomain/Blockchain" method="post">
+                <div class="form-check">
+                    <input class="form-check-input" type="submit" id="BC">
+                    <label class="form-check-label" for="admission">BlockChain</label> 
+                </div><br>
+            </form>
+            <form action="/selectDomain/CloudComputing" method="post">
+                <div class="form-check">
+                    <input class="form-check-input" type="submit" id="CC">
+                    <label class="form-check-label" for="fees">Cloud Computing</label>
+                </div><br>
+            </form>
+            <form action="/selectDomain/InternetofThings" method="post">
+                <div class="form-check">
+                    <input class="form-check-input" type="submit" id="IOT">
+                    <label class="form-check-label" for="infrastructure">Internet of Things</label>
+                </div><br>
+            </form>
+            <form action="/selectDomain/MachineLearning" method="post">
+                <div class="form-check">
+                    <input class="form-check-input" type="submit" id="ML">
+                    <label class="form-check-label" for="books">Machine Learning</label>
+                </div><br>
+            </form>
+            <form action="/selectDomain/MobileApplicationDevelopment" method="post">
+                <div class="form-check">
+                    <input class="form-check-input" type="submit" id="MAD">
+                    <label class="form-check-label" for="books">Mobile Application Development</label>
+                </div><br>
+            </form>
+            <form action="/selectDomain/WebDevelopment" method="post">
+                <div class="form-check">
+                    <input class="form-check-input" type="submit" id="WD">
+                    <label class="form-check-label" for="books">Web Development</label>
+                </div><br>
+            </form>
+            </div>
+            
+        </div>
+        <div class="col-9">
+            <div class="container"><h4 style="color: rgb(46, 163, 242);">Projects</h4><br>
+            <form class="d-flex">
+                <input class="form-control me-2" name="searchtitle" type="text" id="livebox" placeholder="Search by Title" aria-label="Search">
+                <button type="submit" class="btn btn-outline-primary" name="search" value="search_title">Search</button> &nbsp;
+            </form>
+            <div class="row">
+                <table class="table table-striped">
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th></th>
+                    </tr>
+            
+                    {% for project in projects %}
+                        <tr>
+                            <td>{{ project.id }}</td>
+                            <td>{{ project.title }}</td>
+                            <td><a href="viewproject/{{ project.title }}" class="btn btn-default pull-right">View</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                
+            </div><br>
+            
+            </div>
+        </div>
+    </div> 
+</div>
+</section>
+<!--<div class="row">
+    <h2>Welcome {{ session.name }}</h2>
+    <div class="searchbar">
+        <form class="d-flex" method="POST">
+            <input class="form-control me-2" type="search" placeholder="Search for Title" aria-label="Search">
+            <button class="btn btn-outline-primary" type="submit">Search</button> &nbsp;
+            <div class="dropdown">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Domains
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Artificial Intelligence</a></li>
+                <li><a class="dropdown-item" href="#">Cloud Computing</a></li>
+                <li><a class="dropdown-item" href="#">Internet of Things</a></li>
+                <li><a class="dropdown-item" href="#">Machine Learning</a></li>
+                <li><a class="dropdown-item" href="#">Mobile Application Development</a></li>
+                <li><a class="dropdown-item" href="#">Web Development</a></li>
+                </ul>
+            </div>
+        </form>
+    </div>
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th></th>
+        </tr>
+
+        {% for project in projects %}
+            <tr>
+                <td>{{ project.id }}</td>
+                <td>{{ project.title }}</td>
+                <td><a href="viewproject/{{ project.title }}" class="btn btn-default pull-right">View</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>-->
+<!--<script>
+    $(document).ready(function(){
+        $("#livebox").on("input",function(e){
+            text=$("#livebox").val();
+            //console.log(text)
+            $.ajax({
+                method:"post",
+                url:"/livesearch",
+                data:{text:text},
+                success:function(res){
+                    var data = "<ul>";
+                    $.each(res,function(index,value){
+                        console.log(value)
+                        data += "<li>"+value+"</li>";
+                          
+                    });
+                    data += "</ul>";
+                    $("#datalist").html(data);
+                }
+            })
+        });
+    });
+</script>-->
+{% endblock %}

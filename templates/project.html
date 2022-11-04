@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <section class="viewidea"><br><br><br>
+        <h3>{{ project.title }}</h3>
+        <div class="card">
+            <div class="card-body">
+            <!-- <h5 class="card-title">Special title treatment</h5> -->
+                <label for="exampleFormControlTextarea1" class="form-label">Abstract</label>
+                <p class="card-text">{{ project.abstract }}</p>
+            </div>
+            
+        </div><br>
+        <!--<div class="card">
+            <div class="card-body">
+             <h5 class="card-title">Special title treatment</h5>
+                <label for="exampleFormControlTextarea1" class="form-label">Source Code</label>
+                <p id="src_code" class="card-text">{{ project.source_code }}</p>
+            </div>
+            
+        </div><br>-->
+        <div class="card">
+            <div class="card-body"> 
+                <label for="exampleFormControlTextarea1" class="form-label">Team Members</label>
+                <p class="card-text">{{ project.team_details }}</p>
+            </div>
+            
+        </div><br>
+
+        <label for="exampleFormControlTextarea1" class="form-label">Comments</label>
+        {% for c in comments %}
+            <div class="card w-75">
+                <div class="card-body">
+                    <p class="fw-lighter">{{ c.name }}</p>
+                    <p class="card-text">{{ c.comment }}</p>
+                    
+                </div>
+            </div>  
+        {% endfor %}
+        {% if "251A" in session['username'] or "255A" in session['username'] %}
+            <div></div>
+        {% else %}
+            <div class="card w-75">
+                <div class="card-body">                    
+                    <form action="/comments" method="POST">
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Comment Here</label>
+                            <textarea  name="comment" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Comment</button>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+        <br>
+        <div class="card w-75">
+            <div class="card-body">                    
+                <p class="card-text">Have queries on the project?</p>
+                <form action="/mail" method="GET">
+                    <button type="submit" class="btn btn-outline-info">Mail to connect!</button>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

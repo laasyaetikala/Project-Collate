@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+      <centre>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Upload Project Details</h3>
+                    <form class="row g-3" method="POST">
+                        <div class="col-12">
+                          <label for="inputTitle2" class="form-label">Project Title</label>
+                          <!--<input type="text" name="title" id="inputTitle2">-->
+                          <textarea name="title" id="inputTitle2" cols="60" rows="1"></textarea>
+                        </div>
+
+                        <div class="col-md-8">
+                        <label for="inputDomain" class="form-label">Domain</label>
+                        <select class="form-select" name="domain" aria-label="Default select example">
+                            <option selected>Select Domain</option>
+                            <option value="ArtificialIntelligence">Artificial Intelligence</option>
+                            <option value="Blockchain">BlockChain</option>
+                            <option value="CloudComputing">Cloud Computing</option>
+                            <option value="InternetofThings">Internet of Things</option>
+                            <option value="MachineLearning">Machine Learning</option>
+                            <option value="MobileApplicationDevelopment">Mobile Application Development</option>
+                            <option value="WebDevelopment">Web Development</option>
+                          </select>
+                        </div>
+                        
+                        <div class="col-md-12">
+                            <label for="inputAbstract" class="form-label">Abstract</label>
+                            <!--<input type="text" class="custom-control-label" id="inputAbstract">-->
+                            <textarea name="abstract" id="inputAbstract" cols="100" rows="10"></textarea>
+                        </div>
+
+                        <div class="col-12">
+                          <label for="inputTechStack4" class="form-label" >Tech Stack</label>
+                          <!--<input type="text"  id="inputTeamDetails4">-->
+                          <textarea name="techstack" id="inputTechStack2" placeholder="Enter tech-stack used" cols="100" rows="2"></textarea>
+                        </div>
+                        <!--<div class="col-12">
+                            <label for="inputCode2" class="form-label">Source Code</label>
+                            <input type="text" class="custom-control-label" id="inputCode2">
+                            <textarea name="code" id="inputCode2" placeholder="Enter source with filenames" cols="100" rows="20"></textarea>
+                        </div>-->
+                        <div class="col-12">
+                          <label for="inputTeamDetails4" class="form-label" >Team Details</label>
+                          <!--<input type="text"  id="inputTeamDetails4">-->
+                          <textarea name="details" id="inputTeamDetails2" placeholder="Enter full names of team members Ex: name-rollno" cols="100" rows="2"></textarea>
+                        </div>
+                        <div class="col-12">
+                          <button type="submit" class="btn btn-primary">Upload</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </centre>
+      
+{% endblock %}

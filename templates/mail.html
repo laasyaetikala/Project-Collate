@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    {% if "251A" in session['username'] or "255A" in session['username'] %}
+    <div class="row">
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Domain</th>
+                <th></th>
+            </tr>
+
+            {% for f in faculty %}
+                <tr>
+                    <td>{{ f.name }}</td>
+                    <td>{{ f.domain }}</td>
+                    <td><a href="mail/{{ f.name }}" class="btn btn-default pull-right">Mail</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+        
+    </div><br>
+    {% else %}
+    <div class="row">
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th></th>
+            </tr>
+
+            {% for student in students %}
+                <tr>
+                    <td>{{ student.name }}</td>
+                    <td><a href="mail/{{ student.name }}" class="btn btn-default pull-right">Mail</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+        
+    </div><br>
+    
+    {% endif %}
+{% endblock %}

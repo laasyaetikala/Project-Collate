@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <section id="header">
+        <div class="bg-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="header-content">
+                            {% if session.logged_in %}
+                                <h1 class="display-4">Hello {{ session['name'] }}!</h1>
+                            {% else %}
+                                <h1 class="display-4">Hello People!</h1>
+                            {% endif %}
+                            <p class="lead">Welcome to Project Collate.</p>
+                            <hr class="my-4"/>
+                            <a href="/#about" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="about" class="pb-5 pt-5">
+        <div class="container">
+            <h1 class="display-4 text-center mb-5 mt-5"><b>About</b></h1>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <img src="../static/image2.png" alt="" class="img-fluid mb-5"/>
+            </div>
+
+            <div class="col-md-6">
+                <p class="text-justify">
+                    Greetings from Project Collate! <br>
+                    Project-based learning helps the students to gain practical knowledge. It also pushes themselves forward by self-learning, and also improves their problem solving, critical thinking skills.
+                </p>
+                <p class="text-justify">
+                    Project Collate is a platform where students can upload/share their projects, get reviews and suggestions. All the projects in this website are filtered based on their domains, this will benefit the upcoming batches in providing information on specific domain related projects.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="pb-5 pt-5">
+        <div class="container">
+            <h1 class="display-4 text-center mb-5 mt-5"><b>Features</b></h1>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="../static/view.jpeg" class="card-img-top" alt="">
+                    <div class="card-body">
+                    <h5 class="card-title">View</h5>
+                    <p class="card-text">Students and faculty can view the projects. Students will gain idea on what projects can be done.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="../static/upload.jpeg" class="card-img-top" alt="">
+                    <div class="card-body">
+                    <h5 class="card-title">Upload</h5>
+                    <p class="card-text">Senior batches can upload their projects for the reference of junior batches.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="../static/search.png" class="card-img-top1" alt="">
+                    <div class="card-body">
+                    <h5 class="card-title">Search</h5>
+                    <p class="card-text">Projects can be searched based on domains and title helping the junior batches.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}
